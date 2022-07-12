@@ -35,9 +35,12 @@ jobs:
       - build-linux
     steps:
       - uses: actions/download-artifact@v3
+      - name: Display structure of downloaded files
+        run: ls -R
       - uses: softprops/action-gh-release@v1
         with:
           prerelease: true
+          fail_on_unmatched_files: true
           files: |
             wasm-info-linux
             wasm-info-windows.exe
