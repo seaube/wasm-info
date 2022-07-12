@@ -10,15 +10,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-windows:
-    runs-on: windows-latest
+  build:
+    name: build-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
-      - run: iwr https://win.wasmer.io -useb | iex
-      - uses: actions/checkout@v3
-      - run: bazel build //...
-  build-ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-      - run: curl https://get.wasmer.io -sSfL | sh
+      - uses: wasmerio/setup-wasmer@v1.0.2
       - uses: actions/checkout@v3
       - run: bazel build //...
