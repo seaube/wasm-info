@@ -10,14 +10,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-linux:
-    runs-on: [self-hosted, linux]
+  build:
+    name: build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - run: bazel build //...
-
-  build-windows:
-    runs-on: [self-hosted, windows]
-    steps:
-      - uses: actions/checkout@v2
       - run: bazel build //...
