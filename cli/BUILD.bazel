@@ -1,0 +1,12 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "cli",
+    srcs = ["wasm-info-cli.cc"],
+    linkstatic = True,
+    deps = [
+        "@magic_enum",
+        "@nlohmann_json//:json",
+        "@wasmer//:wasmer-c-api",
+    ],
+)
