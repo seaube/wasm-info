@@ -1,0 +1,29 @@
+build --enable_platform_specific_config
+build --incompatible_enable_cc_toolchain_resolution
+build --enable_runfiles
+build --experimental_worker_cancellation
+build --incompatible_strict_action_env
+
+build:windows --cxxopt=/permissive-
+build:windows --cxxopt=/Zc:__cplusplus
+build:windows --cxxopt=/std:c++latest
+build:windows --cxxopt=/diagnostics:caret
+build:windows --host_cxxopt=/permissive-
+build:windows --host_cxxopt=/Zc:__cplusplus
+build:windows --host_cxxopt=/std:c++latest
+build:windows --host_cxxopt=/diagnostics:caret
+
+build:linux --action_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+build:linux --platforms=//bazel/platforms:linux
+build:linux --extra_toolchains=@llvm_toolchain//:cc-toolchain-x86_64-linux
+build:linux --extra_execution_platforms=//bazel/platforms:linux
+build:linux --cxxopt=-stdlib=libstdc++
+build:linux --host_cxxopt=-stdlib=libstdc++
+build:linux --linkopt=-lstdc++
+build:linux --host_linkopt=-lstdc++
+build:linux --cxxopt=-std=c++20
+build:linux --host_cxxopt=-std=c++20
+build:linux --cxxopt=-DBOOST_ASIO_HAS_CO_AWAIT=1
+build:linux --host_cxxopt=-DBOOST_ASIO_HAS_CO_AWAIT=1
+
+try-import %workspace%/user.bazelrc
