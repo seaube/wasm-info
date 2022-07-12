@@ -1,0 +1,16 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "run //hello",
+			"program": "${workspaceFolder}/bazel-bin/hello/hello",
+			"windows": {
+				"program": "${workspaceFolder}/bazel-bin/hello/hello.exe",
+			},
+			"preLaunchTask": "build //hello"
+		}
+	],
+	"compounds": []
+}
