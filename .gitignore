@@ -1,8 +1,4 @@
 /bazel-*
-
-# Added by Hedron's Bazel Compile Commands Extractor
 /external
-# Compiled output -> don't check in
 /compile_commands.json
-# Directory where clangd puts its indexing work
 /.cache/

@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    tags:
+      # https://semver.org/
+      - '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: wasmerio/setup-wasmer@v1.0.2
+      - uses: actions/checkout@v3
+      - run: bazel build --config=release //cli
+      - run: cp bazel-bin/cli/cli.exe wasm-info-windows.exe
+      - uses: actions/upload-artifact@v3
+        with:
+          path: wasm-info-windows.exe
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wasmerio/setup-wasmer@v1.0.2
+      - uses: actions/checkout@v3
+      - run: bazel build --config=release //cli
+      - run: cp bazel-bin/cli/cli wasm-info-linux
+      - uses: actions/upload-artifact@v3
+        with:
+          path: wasm-info-linux
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build-windows
+      - build-linux
+    steps:
+      - uses: actions/download-artifact@v3
+      - uses: softprops/action-gh-release@v1
+        with:
+          prerelease: true
+          files: |
+            wasm-info-linux
+            wasm-info-windows.exe
