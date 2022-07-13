@@ -11,14 +11,7 @@ wasm-info hello.wasm
 ```
 
 ```json
-{
-  "exports": [
-    { "name": "run", "params": [], "results": [], "type": "WASM_EXTERN_FUNC" }
-  ],
-  "imports": [
-    { "name": "hello", "params": [], "results": [], "type": "WASM_EXTERN_FUNC" }
-  ]
-}
+{"exports":[{"name":"run","params":[],"results":[],"type":"WASM_EXTERN_FUNC"}],"imports":[{"name":"hello","params":[],"results":[],"type":"WASM_EXTERN_FUNC"}]}
 ```
 
 If you want the json output to be pretty consider using a tool such as [`jq`](https://stedolan.github.io/jq/).
