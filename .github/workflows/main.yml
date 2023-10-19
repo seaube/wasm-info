@@ -19,5 +19,5 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     steps:
       - uses: wasmerio/setup-wasmer@v1.0.2
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: bazel build //...
