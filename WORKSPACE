@@ -47,8 +47,8 @@ cc_library(
 http_archive(
     name = "nlohmann_json",
     build_file_content = _NLOHMANN_JSON_BUILD_FILE,
-    sha256 = "b94997df68856753b72f0d7a3703b7d484d4745c567f3584ef97c96c25a5798e",
-    url = "https://github.com/nlohmann/json/releases/download/v3.10.5/include.zip",
+    sha256 = "a22461d13119ac5c78f205d3df1db13403e58ce1bb1794edc9313677313f4a9d",
+    url = "https://github.com/nlohmann/json/releases/download/v3.11.3/include.zip",
 )
 
 http_archive(
