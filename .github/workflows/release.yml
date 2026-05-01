@@ -10,7 +10,7 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: wasmerio/setup-wasmer@v1.0.2
+      - uses: wasmerio/setup-wasmer@v3.1
       - uses: actions/checkout@v3
       - run: bazel build --config=release //cli
       - run: cp bazel-bin/cli/cli.exe wasm-info-windows.exe
@@ -21,7 +21,7 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: wasmerio/setup-wasmer@v1.0.2
+      - uses: wasmerio/setup-wasmer@v3.1
       - uses: actions/checkout@v3
       - run: bazel build --config=release //cli
       - run: cp bazel-bin/cli/cli wasm-info-linux
