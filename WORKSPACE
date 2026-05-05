@@ -53,9 +53,9 @@ http_archive(
 
 http_archive(
     name = "magic_enum",
-    sha256 = "5e7680e877dd4cf68d9d0c0e3c2a683b432a9ba84fc1993c4da3de70db894c3c",
-    strip_prefix = "magic_enum-0.8.0",
-    urls = ["https://github.com/Neargye/magic_enum/archive/refs/tags/v0.8.0.tar.gz"],
+    sha256 = "1e54959a3f3cb675938d858603ad69d0f3f7c82439fc2bf86d7232daec2bd10e",
+    strip_prefix = "magic_enum-0.9.8",
+    urls = ["https://github.com/Neargye/magic_enum/archive/refs/tags/v0.9.8.tar.gz"],
 )
 
 http_archive(
