@@ -23,9 +23,9 @@ llvm_toolchain(
 
 http_archive(
     name = "com_google_googletest",
-    sha256 = "b4870bf121ff7795ba20d20bcdd8627b8e088f2d1dab299a031c1034eddc93d5",
-    strip_prefix = "googletest-release-1.11.0",
-    url = "https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz",
+    sha256 = "6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5",
+    strip_prefix = "googletest-1.18.0",
+    url = "https://github.com/google/googletest/archive/refs/tags/v1.18.0.tar.gz",
 )
 
 load("//:wasmer.bzl", "wasmer_repo")
