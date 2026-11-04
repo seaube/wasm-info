@@ -4,9 +4,9 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "com_grail_bazel_toolchain",
-    sha256 = "4f7782654b12e6b0231a98c98bae546d7c7c3156dde5792581dcf6e50e5cbca8",
-    strip_prefix = "bazel-toolchain-f14a8a5de8f7e98a011a52163d4855572c07a1a3",
-    url = "https://github.com/grailbio/bazel-toolchain/archive/f14a8a5de8f7e98a011a52163d4855572c07a1a3.zip",
+    sha256 = "d0d006d5f9041a76af4b6ed140ce51bbed362a7235c64c3c880475144c2cde40",
+    strip_prefix = "bazel-toolchain-a6c3d438d3783d35a42306e0d0616808dba9322d",
+    url = "https://github.com/grailbio/bazel-toolchain/archive/a6c3d438d3783d35a42306e0d0616808dba9322d.zip",
 )
 
 load("@com_grail_bazel_toolchain//toolchain:deps.bzl", "bazel_toolchain_dependencies")
